@@ -3,8 +3,8 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 
 const repoRoot = process.cwd();
-const recipesDir = path.join(reportRoot, "recipes");
-const indexPath = path.join(reportRoot, "recipe-index.md");
+const recipesDir = path.join(repoRoot, "recipes");
+const indexPath = path.join(repoRoot, "recipe-index.md");
 
 async function readRecipeFile(filePath) {
   const content = await fs.readFile(filePath, "utf8");
