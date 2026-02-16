@@ -1,5 +1,5 @@
 ---
-name: buildinglean-list
+name: list
 description: >-
   Display the catalog of available buildinglean recipes so users can pick the
   workflow they need.
@@ -18,7 +18,7 @@ and prints the catalog to stdout.
 ## How to Run
 ```bash
 cd ~/.openclaw/workspace
-npx ts-node buildinglean-recipes/skills/buildinglean-list/list.ts
+npx ts-node buildinglean-recipes/skills/list/list.ts
 ```
 
 ## Output

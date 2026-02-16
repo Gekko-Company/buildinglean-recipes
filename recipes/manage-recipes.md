@@ -39,4 +39,4 @@ private: true
 
 ### Handoff
 - Summarize what changed for the requester.
-- Provide next steps (e.g., "Run buildinglean-list to see the new entry").
+- Provide next steps (e.g., "Run list to see the new entry").

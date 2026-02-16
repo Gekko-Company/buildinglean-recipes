@@ -36,8 +36,11 @@ Restart the gateway afterwards.
 
 3) Install the helper skills
 ```
-openclaw skills install buildinglean-recipes/skills/buildinglean-refresh
-openclaw skills install buildinglean-recipes/skills/buildinglean-list
+openclaw skills install buildinglean-recipes/skills/refresh
+openclaw skills install buildinglean-recipes/skills/list
+openclaw skills install buildinglean-recipes/skills/create-recipe
+openclaw skills install buildinglean-recipes/skills/update-recipe
+openclaw skills install buildinglean-recipes/skills/identify-power-user
 ```
 (Requires Node + ts-node. Install once via `npm install -g ts-node typescript` if you don't have it.)
 
@@ -57,13 +60,13 @@ Verify with `openclaw hooks list`.
 6) Keep recipes current
 Run the refresh skill whenever the user says "Update buildinglean" or "Refresh recipes":
 ```
-npx ts-node buildinglean-recipes/skills/buildinglean-refresh/refresh.ts
+npx ts-node buildinglean-recipes/skills/refresh/refresh.ts
 ```
 This wraps `git pull --strategy-option theirs`.
 
 7) Browse recipes on demand
 ```
-npx ts-node buildinglean-recipes/skills/buildinglean-list/list.ts
+npx ts-node buildinglean-recipes/skills/list/list.ts
 ```
 This regenerates and prints `recipe-index.md`.
 

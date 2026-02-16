@@ -1,5 +1,5 @@
 ---
-name: buildinglean-refresh
+name: refresh
 description: >-
   Update the local buildinglean-recipes repository.
 ---
@@ -16,7 +16,7 @@ asks for the latest workflow instructions. It performs a `git pull` inside the
 ## How to Run
 ```bash
 cd ~/.openclaw/workspace
-npx ts-node buildinglean-recipes/skills/buildinglean-refresh/refresh.ts
+npx ts-node buildinglean-recipes/skills/refresh/refresh.ts
 ```
 
 If `ts-node` is not installed globally, run `npm install -g ts-node typescript` once or
