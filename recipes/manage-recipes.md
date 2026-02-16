@@ -1,5 +1,5 @@
-# Managing Buildinglean Recipes
-
+# Managing BuildingLean Recipes
+## Description
 This recipe describes the canonical process for writing or updating any recipe
 inside `buildinglean-recipes`. Power users should follow it before running the
 automation skills.
@@ -27,9 +27,7 @@ automation skills.
 - Add guardrails (e.g., "wait for user approval", "save to path") wherever
   failure would be costly.
 
-### Validate
-- Run `scripts/update-recipe-index.mjs` if present.
-- Run markdown linting / tests.
+### Validate  
 - Preview the rendered markdown to ensure headings render correctly.
 
 ### Commit & Push
