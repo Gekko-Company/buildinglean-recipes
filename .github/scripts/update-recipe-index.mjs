@@ -48,14 +48,15 @@ async function buildIndex() {
     entries.push({ relPath, ...meta });
   }
 
-  entries.sort((a, b) => a.relPath.localeCompare(b.relPath));
+  entries.sort((a, b) => a.title.localeCompare(b.title));
 
   const header = `# Recipe repository index  
 `;
   const body = entries
     .map((entry) => {
+      const displayPath = entry.relPath.replace(/^\.\/recipes\/?/, "") || entry.relPath;
       const desc = entry.description ? ` - ${entry.description}` : "";
-      return `  - ${entry.relPath}: ${entry.title}${desc}`;
+      return `  - **${entry.title}**${desc} (*${displayPath}*)`;
     })
     .join(`
 `);
