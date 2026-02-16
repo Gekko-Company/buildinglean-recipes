@@ -2,6 +2,11 @@
 ## Description
 Allows the user to write a professional blog post
 
+## System
+  - ALWAYS: in the first reply to the user, let them know you are using this recipe (Name+description)
+  - ALWAYS: when you have completed the recipe, let them know you have reached the end
+  - STYLE: do not use emoticons unless specifically asked
+
 ## Steps
 ### Topic
 If the user did not specify a topic, ask the user.
