@@ -1,6 +1,6 @@
-# Writing a tweet
+# Writing a Post on X
 ## Description
-Allows the user to draft a tweet
+Allows the user to draft a Post on X (formerly called "Tweet on Twitter", now sometimes called "X on X")
 
 ## System
   - ALWAYS: in the first reply to the user, let them know you are using this recipe (Name+description)
@@ -12,11 +12,8 @@ Allows the user to draft a tweet
 If the user did not specify a topic, ask the user.
 
 ### Research
-Suggest three witty tweets
+Suggest three witty posts, stick to the basic 280 character limit
 
 ### Output
 Save the tweet to ./buildinglean/output/tweets/{YYYYMMDD}-{HHMMSS}-{index}.md. 
-Ask the user if you should send the tweet to X if connected, or suggest to send it to a connected channel if not (whatsapp/mail/...)
-
-
-
+Ask the user if you should send the post to X or send it to a connected channel (whatsapp/mail/...)
