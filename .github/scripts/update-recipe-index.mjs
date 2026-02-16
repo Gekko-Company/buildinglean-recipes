@@ -10,21 +10,19 @@ async function readRecipeFile(filePath) {
   const content = await fs.readFile(filePath, "utf8");
   const lines = content.split(/\r?/);
 
-  let title = path.basename(filePath);
-  for (const line of lines) {
-    if (line.startsWith("# ")) {
-      title = line.replace(/^#\s+/, "").trim();
-      break;
-    }
-  }
+  const titleLine = lines.find((line) => line.trim().startsWith("# "));
+  const title = titleLine ? titleLine.replace(/^#\s+/, "").trim() : path.basename(filePath);
 
   let description = "";
-  const descIndex = lines.findIndex((line) => line.trim().toLowerCase() === "## description");
-  if (descIndex !== -1) {
-    for (let i = descIndex + 1; i < lines.length; i += 1) {
+  const descHeaderIndex = lines.findIndex((line) => line.trim().toLowerCase() === "## description");
+  if (descHeaderIndex !== -1) {
+    for (let i = descHeaderIndex + 1; i < lines.length; i += 1) {
       const candidate = lines[i].trim();
       if (candidate.length === 0) {
         continue;
+      }
+      if (candidate.startsWith("#")) {
+        break;
       }
       description = candidate;
       break;
@@ -47,15 +45,19 @@ async function buildIndex() {
 
   entries.sort((a, b) => a.relPath.localeCompare(b.relPath));
 
-  const header = "# Recipe repository index";
+  const header = `# Recipe repository index  
+`;
   const body = entries
     .map((entry) => {
       const desc = entry.description ? ` - ${entry.description}` : "";
       return `  - ${entry.relPath}: ${entry.title}${desc}`;
     })
-    .join("");
+    .join(`
+`);
 
-  const output = `${header}${body}
+  const output = `${header}
+
+${body}
 `;
   await fs.writeFile(indexPath, output, "utf8");
 }
