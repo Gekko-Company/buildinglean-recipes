@@ -1,8 +1,9 @@
 Agent Installation
 
-This repository contains two things:
+This repository contains three things:
 - Workflow recipes under `recipes/`
 - Workspace hooks under `hooks/`
+- Helper skills under `skills/`
 
 Follow the steps below to wire everything into an OpenClaw agent.
 
@@ -33,21 +34,38 @@ JSON
 ```
 Restart the gateway afterwards.
 
-3) Enable the hooks
+3) Install the helper skills
+```
+openclaw skills install buildinglean-recipes/skills/buildinglean-refresh
+openclaw skills install buildinglean-recipes/skills/buildinglean-list
+```
+(Requires Node + ts-node. Install once via `npm install -g ts-node typescript` if you don't have it.)
+
+4) Publish the DSL/context
+```
+cd ~/.openclaw/workspace
+cp buildinglean-recipes/BUILDINGLEAN.md BUILDINGLEAN.md
+```
+Read or `cat BUILDINGLEAN.md` when you need a refresher on terminology.
+
+5) Enable the hooks
 ```
 openclaw hooks enable recipe-nudge
 ```
 Verify with `openclaw hooks list`.
 
-4) Keep recipes current
+6) Keep recipes current
+Run the refresh skill whenever the user says "Update buildinglean" or "Refresh recipes":
 ```
-cd ~/.openclaw/workspace/buildinglean-recipes
-git pull
+npx ts-node buildinglean-recipes/skills/buildinglean-refresh/refresh.ts
 ```
-Run when starting the gateway or during heartbeats. 
+This wraps `git pull --strategy-option theirs`.
 
-5) Use the recipes
-Each markdown file documents a workflow. When `/new` fires, the `recipe-nudge` hook reminds the agent to check `buildinglean-recipes/recipes` before improvising.
+7) Browse recipes on demand
+```
+npx ts-node buildinglean-recipes/skills/buildinglean-list/list.ts
+```
+This regenerates and prints `recipe-index.md`.
 
-6) Final report
+8) Final report
 Tell the user that you have installed the recipes and you are ready to "turbo-charge their life". Use a book emoticon.
