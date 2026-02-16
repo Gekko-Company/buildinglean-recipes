@@ -48,3 +48,6 @@ Run when starting the gateway or during heartbeats.
 
 5) Use the recipes
 Each markdown file documents a workflow. When `/new` fires, the `recipe-nudge` hook reminds the agent to check `buildinglean-recipes/recipes` before improvising.
+
+6) Final report
+Tell the user that you have installed the recipes and you are ready to "turbo-charge their life". Use a book emoticon.
