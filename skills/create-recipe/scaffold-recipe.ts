@@ -28,9 +28,12 @@ function main() {
     console.error(`Recipe already exists: ${recipePath}`);
     process.exit(1);
   }
-  const template = `# ${title}
-## Description
-Describe the workflow here.
+  const template = `---
+title: ${title}
+description: Describe the workflow here.
+---
+
+# ${title}
 
 ## System
   - ALWAYS: in the first reply, mention you're using this recipe.

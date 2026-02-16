@@ -1,6 +1,9 @@
+---
+title: Writing a blog post
+description: Allows the user to write a professional blog post
+---
+
 # Writing a blog post
-## Description
-Allows the user to write a professional blog post
 
 ## System
   - ALWAYS: in the first reply to the user, let them know you are using this recipe (Name+description)
@@ -27,6 +30,4 @@ After writing the blog post, think about three domain experts that would critiqu
 ### Output
 Save the blog post to ./buildinglean/output/blogs/{YYYYMMDD}title.md. 
 Unless the user already specified the final output format, ask the user if you should show and/or send the post.
-
-
 

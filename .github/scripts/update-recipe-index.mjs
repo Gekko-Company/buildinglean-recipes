@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import matter from "gray-matter";
 
 const repoRoot = process.cwd();
 const recipesDir = path.join(repoRoot, "recipes");
@@ -8,27 +9,29 @@ const indexPath = path.join(repoRoot, "recipe-index.md");
 
 async function readRecipeFile(filePath) {
   const content = await fs.readFile(filePath, "utf8");
-  
+  const { data: frontmatter } = matter(content);
+
+  if (frontmatter?.title) {
+    return {
+      title: frontmatter.title,
+      description: frontmatter.description ?? "",
+    };
+  }
+
+  // Legacy fallback: parse # Title and ## Description
   const lines = content.split(/\r?\n/);
-
-  const title = lines[0].substring(2);
-
+  const title = lines[0]?.startsWith("# ") ? lines[0].substring(2) : "";
   let description = "";
   const descHeaderIndex = lines.findIndex((line) => line.trim().toLowerCase() === "## description");
   if (descHeaderIndex !== -1) {
     for (let i = descHeaderIndex + 1; i < lines.length; i += 1) {
       const candidate = lines[i].trim();
-      if (candidate.length === 0) {
-        continue;
-      }
-      if (candidate.startsWith("#")) {
-        break;
-      }
+      if (candidate.length === 0) continue;
+      if (candidate.startsWith("#")) break;
       description = candidate;
       break;
     }
   }
-  
   return { title, description };
 }
 

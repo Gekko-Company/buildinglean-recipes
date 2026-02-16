@@ -1,8 +1,9 @@
-# Managing BuildingLean Recipes
-## Description
-This recipe describes the canonical process for writing or updating any recipe
-inside `buildinglean-recipes`. Power users should follow it before running the
-automation skills.
+---
+title: Managing Buildinglean Recipes
+description: This recipe describes the canonical process for writing or updating any recipe inside `buildinglean-recipes`. Power users should follow it before running the automation skills.
+---
+
+# Managing Buildinglean Recipes
 
 ## System
   - ALWAYS: mention in your first reply that you are using the "Managing
@@ -22,7 +23,7 @@ automation skills.
 - Decide on slug (kebab-case) and final filename.
 
 ### Author
-- Populate `# Title`, `## Description`, `## System`, `## Steps`, and `### Output`.
+- Populate frontmatter (`title`, `description`), `# Title`, `## System`, `## Steps`, and `### Output`.
 - Keep instructions action-oriented: verbs + specifics.
 - Add guardrails (e.g., "wait for user approval", "save to path") wherever
   failure would be costly.

@@ -1,6 +1,9 @@
+---
+title: Writing a Post on X
+description: Allows the user to draft a Post on X (formerly called "Tweet on Twitter", now sometimes called "X on X")
+---
+
 # Writing a Post on X
-## Description
-Allows the user to draft a Post on X (formerly called "Tweet on Twitter", now sometimes called "X on X")
 
 ## System
   - ALWAYS: in the first reply to the user, let them know you are using this recipe (Name+description)
