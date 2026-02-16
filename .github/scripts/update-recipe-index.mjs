@@ -3,15 +3,15 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 
 const repoRoot = process.cwd();
-const recipesDir = path.join(repoRoot, "recipes");
-const indexPath = path.join(repoRoot, "recipe-index.md");
+const recipesDir = path.join(reportRoot, "recipes");
+const indexPath = path.join(reportRoot, "recipe-index.md");
 
 async function readRecipeFile(filePath) {
   const content = await fs.readFile(filePath, "utf8");
-  const lines = content.split(/\r?/);
+  
+  const lines = content.split(/\r?\n/);
 
-  const titleLine = lines.find((line) => line.trim().startsWith("# "));
-  const title = titleLine ? titleLine.replace(/^#\s+/, "").trim() : path.basename(filePath);
+  const title = lines[0].substring(2);
 
   let description = "";
   const descHeaderIndex = lines.findIndex((line) => line.trim().toLowerCase() === "## description");
@@ -28,7 +28,7 @@ async function readRecipeFile(filePath) {
       break;
     }
   }
-
+  
   return { title, description };
 }
 
