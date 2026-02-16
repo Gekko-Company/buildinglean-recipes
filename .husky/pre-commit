@@ -1,0 +1,2 @@
+node .github/scripts/update-recipe-index.mjs
+git add recipe-index.md
