@@ -44,9 +44,9 @@ openclaw skills install buildinglean-recipes/skills/buildinglean-list
 4) Publish the DSL/context
 ```
 cd ~/.openclaw/workspace
-cp buildinglean-recipes/BUILDINGLEAN.md BUILDINGLEAN.md
+cp buildinglean-recipes/dsl.md BUILDINGLEAN-DSL.md
 ```
-Read or `cat BUILDINGLEAN.md` when you need a refresher on terminology.
+Read or `cat BUILDINGLEAN-DSL.md` when you need a refresher on terminology.
 
 5) Enable the hooks
 ```
