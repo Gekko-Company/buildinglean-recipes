@@ -17,6 +17,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Install dependencies
+        run: npm ci
       - name: Regenerate recipe index
         run: node .github/scripts/update-recipe-index.mjs
       - name: Commit changes if needed
