@@ -15,6 +15,7 @@ async function readRecipeFile(filePath) {
     return {
       title: frontmatter.title,
       description: frontmatter.description ?? "",
+      private: frontmatter.private === true,
     };
   }
 
@@ -32,7 +33,7 @@ async function readRecipeFile(filePath) {
       break;
     }
   }
-  return { title, description };
+  return { title, description, private: false };
 }
 
 async function buildIndex() {
@@ -43,6 +44,7 @@ async function buildIndex() {
     const relPath = `./recipes/${dirent.name}`;
     const fullPath = path.join(recipesDir, dirent.name);
     const meta = await readRecipeFile(fullPath);
+    if (meta.private) continue;
     entries.push({ relPath, ...meta });
   }
 

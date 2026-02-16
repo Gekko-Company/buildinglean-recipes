@@ -1,6 +1,7 @@
 ---
 title: Managing Buildinglean Recipes
 description: This recipe describes the canonical process for writing or updating any recipe inside `buildinglean-recipes`. Power users should follow it before running the automation skills.
+private: true
 ---
 
 # Managing Buildinglean Recipes
