@@ -54,9 +54,8 @@ async function buildIndex() {
 `;
   const body = entries
     .map((entry) => {
-      const displayPath = entry.relPath.replace(/^\.\/recipes\/?/, "") || entry.relPath;
       const desc = entry.description ? ` - ${entry.description}` : "";
-      return `  - **${entry.title}**${desc} (*${displayPath}*)`;
+      return `  - **${entry.title}**${desc} (*${entry.relPath*)`;
     })
     .join(`
 `);
