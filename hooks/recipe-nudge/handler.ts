@@ -18,7 +18,7 @@ const handler = async (event) => {
   } catch (error) {
     console.warn(`[recipe-nudge] Unable to read recipe index at ${absoluteIndexPath}:`, error);
   }
-  event.messages.push(`📘 Recipe hook: Before tackling the user's request, open ${(workspaceDir ? relIndexPath : absoluteIndexPath)} and follow the documented recipe that matches the task. ${indexContent}`);
+  event.messages.push(`📘 Recipe hook: Before tackling the user's request, open ${(workspaceDir ? relIndexPath : absoluteIndexPath)} and follow the documented recipe that matches the task. ${indexContent}, if no recipe matches, suggest to create a workflow together and save that as a recipe instead.`);
 };
 
 export default handler;
