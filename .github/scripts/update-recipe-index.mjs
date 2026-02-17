@@ -55,7 +55,7 @@ async function buildIndex() {
   const body = entries
     .map((entry) => {
       const desc = entry.description ? ` - ${entry.description}` : "";
-      return `  - **${entry.title}**${desc} (*${entry.relPath*)`;
+      return `  - **${entry.title}**${desc} (*${entry.relPath}*)`;
     })
     .join(`
 `);
